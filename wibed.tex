@@ -222,9 +222,9 @@
 		\pause
 		\item Do you want to do realistic experiments?
 		\pause
-		\item Are you bored of all the virtualization hype?
+		\item Are you sick of all the virtualization hype?
 		\pause
-		\item Are you desperate of performing L2 or lower epxeriments?
+		\item Are you desperate to perform L2 or lower experiments?
 	\end{itemize}
 	\pause
 	\begin{center}
@@ -240,10 +240,10 @@
 
 	WiBed is:
 	\begin{itemize}
-		\item A mesh testbed software platform 
-		\item An actual mesh testbed
-		\item Based on commodity IEEE802.11 routers
-		\item A Good option for wireless networking experiments
+		\item A software platform aimed at deploying network experiments
+		\item Also an OpenWRT-based platform to easily deploy and manage your mesh network
+		\item Designed to run on commodity (cheap) IEEE802.11 routers
+		\item Your best option for wireless networking experiments :)
 	\end{itemize}
 
 \end{frame}
@@ -253,8 +253,8 @@
 
 	but WiBed is also:
 	\begin{itemize}
-		\item An effort started by "hackers" in the WBM
-		\item Complement Community-Lab testbed (Low Cost, Low layer Experiments)
+		\item An effort started by "hackers" in the WBMv6
+		\item Complement Community-Lab.net testbed (Low Cost, Low layer Experiments)
 		\item Fast-installed self-organized mesh network
 	\end{itemize}
 
@@ -277,28 +277,38 @@
 \begin{frame}\frametitle{Design Overview}
 
 	\begin{itemize}
-		\item Nodes behave like FSM
-		\item Communication with server through mgmt network
-		\item Every N seconds nodes pull state info from server
-		\item Node access only through server (ideally)
+		\item Nodes behave like FSM (idle-prepare-deploy-run-finish-idle)
+		\item Communication with server through management mesh network
+		\item REST-API pulling mechanism: every N seconds nodes pull state info and orders from server
+		\item Node access mainly from the server web-UI
+		\item Based on OpenWrt trunk
+		\item Organized in packages, OpenWRT-compatible feed
+		\item Management Network based on batman-adv 
 	\end{itemize}
-
 \end{frame}
 
 
-\subsection{WiBed Nodes}
+\subsection{Implementation}
 
-\begin{frame}\frametitle{Implementation}
+\begin{frame}\frametitle{Implementation: Diagram}
 
 	\begin{itemize}
-		\item \textit{Firmware}: \texttt{OpenWrt}
-		\item \textit{Our system}: \texttt{wibed-packages} (\texttt{UCI} configs, \texttt{Lua} scripts)
-		\item \textit{Management Network}: \texttt{batman-adv}
+	\item Nodes self-configure during the first boot
+	\item IP address, hostname, ssid, etc. based on MAC address
+	\item Experiments are overlays which are installed in the nodes
+	\item Once an experiment finish, the overlay is removed and node goes back to initial state
 	\end{itemize}
 
+	\begin{figure}[h!]
+	\begin{center}
+	\includegraphics[width=0.6\textwidth]{pic/functdia}
+	  \caption{WiBed Node functional diagram}
+	\label{fig:funct}
+	\end{center}
+	\end{figure}
 \end{frame}
 
-\begin{frame}\frametitle{Key Idea: OverlayFS}
+\begin{frame}\frametitle{Implementation: OverlayFS 1/2}
 
 \begin{figure}[h!]
 \begin{center}
@@ -310,7 +320,7 @@
 
 \end{frame}
 
-\begin{frame}\frametitle{Key Idea: OverlayFS}
+\begin{frame}\frametitle{Implementation: OverlayFS 2/2}
 
 
 \begin{columns}[c] % the "c" option specifies center vertical alignment
@@ -333,6 +343,46 @@
    	\end{columns}
 
 \end{frame}
+
+
+\begin{frame}\frametitle{Implementation: Hardware}
+
+	\begin{itemize}
+	\item Node must be compatible with OpenWRT Linux (minimum 4MB flash)
+	\item Node must have at least two radios (one for mgmt, one for experiments)
+	\item Node must have at least one USB port (to store the overlay)
+	\end{itemize}
+
+	\begin{figure}[h!]
+	\begin{center}
+	\includegraphics[width=0.6\textwidth]{pic/nodehw}
+	  \caption{WiBed Node hardware}
+	\label{fig:funct}
+	\end{center}
+	\end{figure}
+\end{frame}
+
+
+
+\begin{frame}\frametitle{Implementation: Config file}
+
+	\begin{itemize}
+	\item WiBed uses UCI to manage the configuration
+	\item It is flexible and allows many options
+	\\
+	For instance, management network device can be defined as ``list ifaces radio2/radio1'' meaning if radio2 exists, it will be used, otherwise radio1
+	\end{itemize}
+
+	\begin{figure}[h!]
+	\begin{center}
+	\includegraphics[width=0.6\textwidth]{pic/config}
+	  \caption{WiBed Node functional diagram}
+	\label{fig:funct}
+	\end{center}
+	\end{figure}
+\end{frame}
+
+
 
 \subsection{WiBed Server}
 
