@@ -290,7 +290,24 @@
 
 \subsection{Implementation}
 
-\begin{frame}\frametitle{Implementation: Diagram}
+\begin{frame}\frametitle{Hardware}
+
+	\begin{itemize}
+	\item Node must be compatible with OpenWRT Linux (minimum 4MB flash)
+	\item Node must have at least two radios (one for mgmt, one for experiments)
+	\item Node must have at least one USB port (to store the overlay)
+	\end{itemize}
+
+	\begin{figure}[h!]
+	\begin{center}
+	\includegraphics[width=0.6\textwidth]{pic/nodehw}
+	  \caption{WiBed Node hardware}
+	\label{fig:funct}
+	\end{center}
+	\end{figure}
+\end{frame}
+
+\begin{frame}\frametitle{Diagram}
 
 	\begin{itemize}
 	\item Nodes self-configure during the first boot
@@ -308,7 +325,7 @@
 	\end{figure}
 \end{frame}
 
-\begin{frame}\frametitle{Implementation: OverlayFS 1/2}
+\begin{frame}\frametitle{OverlayFS 1/2}
 
 \begin{figure}[h!]
 \begin{center}
@@ -320,7 +337,7 @@
 
 \end{frame}
 
-\begin{frame}\frametitle{Implementation: OverlayFS 2/2}
+\begin{frame}\frametitle{OverlayFS 2/2}
 
 
 \begin{columns}[c] % the "c" option specifies center vertical alignment
@@ -345,26 +362,11 @@
 \end{frame}
 
 
-\begin{frame}\frametitle{Implementation: Hardware}
-
-	\begin{itemize}
-	\item Node must be compatible with OpenWRT Linux (minimum 4MB flash)
-	\item Node must have at least two radios (one for mgmt, one for experiments)
-	\item Node must have at least one USB port (to store the overlay)
-	\end{itemize}
-
-	\begin{figure}[h!]
-	\begin{center}
-	\includegraphics[width=0.6\textwidth]{pic/nodehw}
-	  \caption{WiBed Node hardware}
-	\label{fig:funct}
-	\end{center}
-	\end{figure}
-\end{frame}
 
 
 
-\begin{frame}\frametitle{Implementation: Config file}
+
+\begin{frame}\frametitle{Config file}
 
 	\begin{itemize}
 	\item WiBed uses UCI to manage the configuration
@@ -386,20 +388,12 @@
 
 \subsection{WiBed Server}
 
-\begin{frame}\frametitle{Implementation}
-
-	\begin{itemize}
-		\item \textit{Server}:  \texttt{Tornado Web Server}
-		\item \textit{Our system}: \texttt{Flask} app + \texttt{SQLite}
-	\end{itemize}
-
-\end{frame}
 
 
 \begin{frame}\frametitle{Wibed Server}
-
-	Thus there is:
 	\begin{itemize}
+		\item \textit{Server}:  \texttt{Tornado Web Server}
+		\item \textit{Our system}: \texttt{Flask} app + \texttt{SQLite}
 		\item A REST API for interaction with nodes
 		\item A web interface for interaction with users
 	\end{itemize}
@@ -407,6 +401,17 @@
 \end{frame}
 
 \section{End of story}
+
+\begin{frame}\frametitle{More info}
+
+	\begin{itemize}
+		\item {\color{blue} \href{http://wiki.confine-project.eu/wibed:start}{Wiki}}
+		\item {\color{blue} \href{http://wiki.confine-project.eu/_media/wibed:wibed-7pages.pdf}{Paper}}
+		\item {\color{blue} \href{http://redmine.confine-project.eu/projects/wibed}{Repo}}
+		\item Us 
+	\end{itemize}
+
+\end{frame}
 
 \begin{frame}\frametitle{Got you!}
 
@@ -419,15 +424,7 @@
 
 \end{frame}
 
-\begin{frame}\frametitle{More info}
 
-	\begin{itemize}
-		\item {\color{blue} \href{http://wiki.confine-project.eu/wibed:start}{Wiki}}
-		\item {\color{blue} \href{http://wiki.confine-project.eu/_media/wibed:wibed-7pages.pdf}{Paper}}
-		\item Us 
-	\end{itemize}
-
-\end{frame}
 
 
 \begin{comment}
