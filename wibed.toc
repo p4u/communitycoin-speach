@@ -1,9 +1,0 @@
-\beamer@endinputifotherversion {3.33pt}
-\beamer@sectionintoc {1}{Introduction}{2}{0}{1}
-\beamer@subsectionintoc {1}{1}{Motivation}{3}{0}{1}
-\beamer@subsectionintoc {1}{2}{What is that?}{9}{0}{1}
-\beamer@sectionintoc {2}{Architecture}{11}{0}{2}
-\beamer@subsectionintoc {2}{1}{Overview}{12}{0}{2}
-\beamer@subsectionintoc {2}{2}{Implementation}{14}{0}{2}
-\beamer@subsectionintoc {2}{3}{WiBed Server}{19}{0}{2}
-\beamer@sectionintoc {3}{End of story}{21}{0}{3}
