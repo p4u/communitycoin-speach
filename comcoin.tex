@@ -144,15 +144,15 @@
 
 \title[CommunityCoin: a crypto currency for network communities]{CommunityCoin: a crypto currency for network communities}
 
-\author[{p4u}]{p4u}
-\institute[{guifi.net}]{guifi.net}
+\author[{p4u,manos}]{p4u,manos}
+\institute[{guifi.net,upc}]{guifi.net,upc}
 \date[\today]{\today}
 %\date[\today]{\today}
 
 % Δήλωση στοιχείων για το pdf
 \hypersetup{
   pdftitle={a crypto currency for network communities},
-  pdfauthor={p4u},
+  pdfauthor={p4u,manos},
   pdfsubject={crypto currency},
   pdfkeywords={Commodity network, crypto currency}
 }
@@ -264,27 +264,79 @@ The difficulty target is calculated every 2016 blocks and it depends on the netw
 \subsection{Motivation}
 
 \begin{frame}\frametitle{Motivation}
-	\begin{itemize}
+	\begin{enumerate}
+		\item An economic system is needed to organize a community where resources are limited
 		\item Community is not only about tech stuff, it involves also socio-economic aspects
 		\item We own our network, why not to own our own economic system?
 		\item It adds many new ways for funding, thus it makes the community more sustainable
 		\item It might incentivize community users to work for the community
 		\item It can be fun :)
-	\end{itemize}
+	\end{enumerate}
 \end{frame}
 
-\subsection{Initial Ideas}
-\begin{frame}\frametitle{}
+
+\subsection{Ideas}
+\begin{frame}\frametitle{Things to avoid}
 	\begin{enumerate}
-		\item Effort evaluation
-		\item Translation to 
+		\item Create just another crypto-scam-coin
+		\item Make the system very expensive to maintain (PoW)
+		\item Create a tool to enable speculation
+		\item Destroy the community volunteer actions
 
 	\end{enumerate}
 \end{frame}
 
-\subsection{Possible Problems}
+\begin{frame}\frametitle{Things to include}
+\begin{enumerate}
+		\item Reward based on user contributions to the community
+		\item Distribute the coins in a fear way
+		\item Try to restrict its usage only for community related stuff (Proof of Identity)
+		\item Use some other less-expensive system (PoS?) rather than PoW
+		\item Create not only a currency but also a platform to organize the community (voting system, dns, etc.)
+\end{enumerate}
+\end{frame}
 
 
+\begin{frame}\frametitle{Transaction control (PoI)}
+\begin{enumerate}
+		\item There must be at least 1 SuperNode per Community
+		\item Community SuperNodes must know which users are valid (active)
+		\item Each currency transaction must be validated by at least one SN (sender and reciver)
+		\item SuperNodes are in a trusted ring (a non trusted supernode is not considered a valididator)
+		\item The acceptance of a new SuperNode must be accepted by at least the 51\% of the SuperNodes
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}\frametitle{Transaction control (PoI)}
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=0.85\textwidth]{pic/transactions}
+\caption{Transactions}
+\label{fig:block}
+\end{center}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}\frametitle{Reward distribution}
+\begin{enumerate}
+		\item Proof of stake to keep the blockchain secure (small reward each block)
+		\item Eeach N blocks, big reward based on user contribution (C-reward)\\
+		 - The C-reward is spread among SuperNodes according to the number of transactions done the last N blocks \\
+		 - Communities SN must distribute the coins according its internal metrics\\
+		 - These metrics must be based on user contributions but this is up to each community
+\end{enumerate}
+\end{frame}
+
+\subsection{Your ideas}
+
+\begin{frame}\frametitle{Feedback}
+	\begin{center}
+	  So, what do you think?
+	\end{center}
+
+\end{frame}
 
 \frame{\titlepage}
 
